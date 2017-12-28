@@ -13,6 +13,24 @@
     <ul class="list"></ul>
 </body>
 <script>
+    // 18位身份证号码
+    var ipt = document.querySelector('.ipt');
+    var list = document.querySelector('.list');
+    var btn = document.querySelector('.btn');
+    btn.onclick = function() {
+        var val = ipt.value;
+        if (val.length !== 18 || isNaN(val)) {
+            alert('您输入的号码不合格');
+            ipt.value = ' ';
+        } else {
+            var qv = val.substr(0, 6);
+            var str = val.substr(6, 8); // 生日
+            var mi = val.substr(14, 4);
+        }
+        var code = '';
+        code += `<li>${qv}<b>${str}</b>****</li>`;
+        list.innerHTML = code;
+    }
 </script>
 
 </html>
